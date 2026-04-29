@@ -1,4 +1,3 @@
-
 # Jellyfin2HQPlayer
 
 **Version 1.3.0**
@@ -63,6 +62,12 @@ HQPlayer 直接打开并读取音频文件。
 
 ---
 
+### 1.4 播放架构拓扑图
+
+[TOPOLOGY.md](TOPOLOGY.md)
+
+---
+
 ## 2. 功能特性
 
 - Jellyfin 音乐库集成
@@ -87,7 +92,9 @@ Jellyfin2HQPlayer Plugin 提供：
 - 音频文件路径 → Jellyfin ItemId 映射
 - 用于 Jellyfin2HQPlayer 集成的 REST API 路由
 
-GitHub：[https://github.com/YTSamLee/Jellyfin2HQPlayer-plugin](https://github.com/YTSamLee/Jellyfin2HQPlayer-plugin)
+GitHub：
+
+[https://github.com/YTSamLee/Jellyfin2HQPlayer-plugin](https://github.com/YTSamLee/Jellyfin2HQPlayer-plugin)
 
 ---
 
@@ -105,27 +112,31 @@ Jellyfin 提供完整的音乐管理能力，HQPlayer 负责音频播放，Jelly
 
 ## 5. 快速开始
 
-### 5.1. 安装 Jellyfin Server
+### 5.1 安装 Jellyfin Server
 
-链接：  
-- [install-jellyfin-en.txt](install-jellyfin-en.txt)  
-- [install-jellyfin-cn.txt](install-jellyfin-cn.txt)  
+链接：
 
-### 5.2. 部署 Jellyfin2HQPlayer
+- [install-jellyfin-en.txt](install-jellyfin-en.txt)
+- [install-jellyfin-cn.txt](install-jellyfin-cn.txt)
 
-链接：  
-- [jellyfin2hqplayer-quickstart-en.txt](jellyfin2hqplayer-quickstart-en.txt)  
-- [jellyfin2hqplayer-quickstart-cn.txt](jellyfin2hqplayer-quickstart-cn.txt)  
+### 5.2 部署 Jellyfin2HQPlayer
 
-### 5.3. 部署 Jellyfin2HQPlayerPlugin
+链接：
 
-链接：  
-- [Jellyfin2HQPlayerPlugin-en.txt](Jellyfin2HQPlayerPlugin-en.txt)  
-- [Jellyfin2HQPlayerPlugin-cn.txt](Jellyfin2HQPlayerPlugin-cn.txt)  
+- [jellyfin2hqplayer-quickstart-en.txt](jellyfin2hqplayer-quickstart-en.txt)
+- [jellyfin2hqplayer-quickstart-cn.txt](jellyfin2hqplayer-quickstart-cn.txt)
+
+### 5.3 部署 Jellyfin2HQPlayerPlugin
+
+链接：
+
+- [Jellyfin2HQPlayerPlugin-en.txt](Jellyfin2HQPlayerPlugin-en.txt)
+- [Jellyfin2HQPlayerPlugin-cn.txt](Jellyfin2HQPlayerPlugin-cn.txt)
 
 ---
 
 ## 6. 联系方式
 
-YTSam  
+YTSam
+
 邮箱：563422071@qq.com
