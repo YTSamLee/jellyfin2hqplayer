@@ -1,4 +1,5 @@
 # Jellyfin2HQPlayer
+![Jellyfin2HQPlayer Icon](icons/64x64.png)
 
 **Version 1.3.0**
 
