@@ -1,11 +1,11 @@
-==================================================
-Jellyfin2HQPlayer Three Playback Modes
+# Jellyfin2HQPlayer Three Playback Modes  
 Topology and Features
-==================================================
 
+---
 
-1. File Mode (Recommended)
+## 1. File Mode (Recommended)
 
+```text
 +------------------------------+
 |      Browser (Web UI)        |
 +---------------+--------------+
@@ -45,8 +45,9 @@ Topology and Features
 | NAS Mount Path       |   | Local Disk Path      |
 | /mnt/NASMusic/...    |   | /local/music/...     |
 +----------------------+   +----------------------+
+```
 
-Features:
+### Features
 
 - Jellyfin and HQPlayer deployed on the same machine
 - HQPlayer directly reads local audio files
@@ -55,9 +56,11 @@ Features:
 - Shortest signal path
 - Native bit-perfect playback
 
+---
 
-2. HTTP File Mode (HQPlayer Recommended)
+## 2. HTTP File Mode (HQPlayer Recommended)
 
+```text
 +------------------------------+
 |      Browser (Web UI)        |
 +---------------+--------------+
@@ -93,8 +96,9 @@ Features:
 |  |         (Renderer)          |  |
 |  +-------------+---------------+  |
 +-----------------------------------+
+```
 
-Features:
+### Features
 
 - Jellyfin and HQPlayer can be deployed on different machines
 - sequential stream model
@@ -103,9 +107,11 @@ Features:
 - file-like playback behavior
 - bit-perfect
 
+---
 
-3. HTTP Stream Mode (Compatibility Mode)
+## 3. HTTP Stream Mode (Compatibility Mode)
 
+```text
 +------------------------------+
 |      Browser (Web UI)        |
 +---------------+--------------+
@@ -141,8 +147,9 @@ Features:
 |  |         (Renderer)          |  |
 |  +-------------+---------------+  |
 +-----------------------------------+
+```
 
-Features:
+### Features
 
 - Jellyfin and HQPlayer can be deployed on different machines
 - random-access stream model
