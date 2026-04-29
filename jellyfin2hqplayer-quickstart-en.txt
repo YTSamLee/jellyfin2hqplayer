@@ -10,13 +10,14 @@ Required files:
 - jellyfin2hqplayer-linux-x64-x.x.x.tar.gz
 - deploy-jellyfin2hqplayer-linux-x64.sh
 
-Run the following commands:
+Run:
 
-chmod +x deploy-jellyfin2hqplayer-linux-x64.sh
-sudo ./deploy-jellyfin2hqplayer-linux-x64.sh
+    chmod +x deploy-jellyfin2hqplayer-linux-x64.sh
+    sudo ./deploy-jellyfin2hqplayer-linux-x64.sh
 
-(Optional) Specify a custom port:
-sudo PORT=8080 ./deploy-jellyfin2hqplayer-linux-x64.sh
+(Optional) Specify custom port:
+
+    sudo PORT=8080 ./deploy-jellyfin2hqplayer-linux-x64.sh
 
 ==================================================
 2. macOS arm64
@@ -27,16 +28,18 @@ Required files:
 - jellyfin2hqplayer-macos-arm64-x.x.x.tar.gz
 - deploy-jellyfin2hqplayer-macos-arm64.sh
 
-Execute the following in your terminal:
+Execute the following in Terminal:
 
-chmod +x deploy-jellyfin2hqplayer-macos-arm64.sh
-./deploy-jellyfin2hqplayer-macos-arm64.sh
+    chmod +x deploy-jellyfin2hqplayer-macos-arm64.sh
+    ./deploy-jellyfin2hqplayer-macos-arm64.sh
 
-**Note:** Do not use `sudo`.
+Note:
 
-(Optional) Specify a custom port:
+- Do NOT use sudo
 
-PORT=8080 ./deploy-jellyfin2hqplayer-macos-arm64.sh
+(Optional) Specify custom port:
+
+    PORT=8080 ./deploy-jellyfin2hqplayer-macos-arm64.sh
 
 ==================================================
 3. Windows x64
@@ -46,37 +49,80 @@ Required files:
 
 - jellyfin2hqplayer-windows-x64-x.x.x.rar
 
-Extract the file package to any directory:
+Extract the package to any directory.
 
-For example: C:\jellyfin2hqplayer
+For example:
 
-### 3.1 Direct run
+    C:\jellyfin2hqplayer
+
+--------------------------------------------------
+3.1 Direct run
+--------------------------------------------------
 
 Go to the extracted directory and run directly:
 
-start-jellyfin2hqplayer.ps1
+    start-jellyfin2hqplayer.ps1
 
 Or:
 
-jellyfin2hqplayer-win-x64.exe
+    jellyfin2hqplayer-win-x64.exe
 
-### 3.2 Set up auto-start at startup
+--------------------------------------------------
+3.2 Configure auto-start after user logon
+(Recommended)
+--------------------------------------------------
 
 Open PowerShell as Administrator.
 
-Navigate to the extracted directory and run:
+Navigate to the extracted directory:
 
-.\Create-Jellyfin2HQPlayerTask.ps1
+    cd C:\jellyfin2hqplayer
 
-(Optional) Specify a custom port:
+Run:
 
-Add the system environment variable through the graphical interface:
+    .\Create-Jellyfin2HQPlayerTask-AtLogon.ps1
 
-PORT=8080
+Features:
 
-Or set the system environment variable through the command line (requires Administrator privileges):
+- Starts automatically after user logon
+- No Windows password required
+- Recommended default mode
+- Best suited for Jellyfin2HQPlayer
 
-setx PORT "8080" /M
+--------------------------------------------------
+3.3 Configure Windows startup background mode
+(Advanced)
+--------------------------------------------------
+
+Open PowerShell as Administrator.
+
+Navigate to the extracted directory:
+
+    cd C:\jellyfin2hqplayer
+
+Run:
+
+    .\Create-Jellyfin2HQPlayerTask-AtStartup.ps1
+
+Features:
+
+- Starts automatically when Windows boots
+- Runs even if the user is not logged in
+- Requires Windows password
+- More similar to background service mode
+
+--------------------------------------------------
+3.4 (Optional) Custom port
+--------------------------------------------------
+
+Add system environment variable via GUI:
+
+    PORT=8080
+
+Or set system environment variable using command line
+(Administrator required):
+
+    setx PORT "8080" /M
 
 ==================================================
 4. Access the Web Interface
@@ -84,10 +130,10 @@ setx PORT "8080" /M
 
 Access URL:
 
-http://<IP>:3000
+    http://<IP>:3000
 
-Upon first startup:
+First startup:
 
 - Default port: 3000 (or custom PORT)
-- Log in to the Jellyfin server (Login)
+- Log in to Jellyfin server (Login)
 - Select HQPlayer device (Play To)

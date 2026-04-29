@@ -12,11 +12,12 @@ Jellyfin2HQPlayer 部署指南
 
 运行：
 
-chmod +x deploy-jellyfin2hqplayer-linux-x64.sh
-sudo ./deploy-jellyfin2hqplayer-linux-x64.sh
+    chmod +x deploy-jellyfin2hqplayer-linux-x64.sh
+    sudo ./deploy-jellyfin2hqplayer-linux-x64.sh
 
 （可选）自定义端口：
-sudo PORT=8080 ./deploy-jellyfin2hqplayer-linux-x64.sh
+
+    sudo PORT=8080 ./deploy-jellyfin2hqplayer-linux-x64.sh
 
 ==================================================
 2. macOS arm64
@@ -29,14 +30,16 @@ sudo PORT=8080 ./deploy-jellyfin2hqplayer-linux-x64.sh
 
 在本机终端（Terminal）中执行：
 
-chmod +x deploy-jellyfin2hqplayer-macos-arm64.sh
-./deploy-jellyfin2hqplayer-macos-arm64.sh
+    chmod +x deploy-jellyfin2hqplayer-macos-arm64.sh
+    ./deploy-jellyfin2hqplayer-macos-arm64.sh
 
-**注意：** 不要使用 `sudo`。
+注意：
+
+- 不要使用 sudo
 
 （可选）指定端口：
 
-PORT=8080 ./deploy-jellyfin2hqplayer-macos-arm64.sh
+    PORT=8080 ./deploy-jellyfin2hqplayer-macos-arm64.sh
 
 ==================================================
 3. Windows x64
@@ -48,35 +51,76 @@ PORT=8080 ./deploy-jellyfin2hqplayer-macos-arm64.sh
 
 将文件包解压到任意目录：
 
-例如：C:\jellyfin2hqplayer
+例如：
 
-### 3.1 直接运行
+    C:\jellyfin2hqplayer
+
+--------------------------------------------------
+3.1 直接运行
+--------------------------------------------------
 
 进入解压后的目录，直接运行：
 
-start-jellyfin2hqplayer.ps1
+    start-jellyfin2hqplayer.ps1
 
 或者：
 
-jellyfin2hqplayer-win-x64.exe
+    jellyfin2hqplayer-win-x64.exe
 
-### 3.2 配置开机自启动
+--------------------------------------------------
+3.2 配置登录后自动启动（推荐）
+--------------------------------------------------
 
 以管理员身份打开 PowerShell。
 
-进入解压后的目录，执行：
+进入解压后的目录：
 
-.\Create-Jellyfin2HQPlayerTask.ps1
+    cd C:\jellyfin2hqplayer
 
-（可选）自定义端口：
+执行：
+
+    .\Create-Jellyfin2HQPlayerTask-AtLogon.ps1
+
+特点：
+
+- 用户登录后自动启动
+- 不需要 Windows 密码
+- 推荐默认方案
+- 最适合 Jellyfin2HQPlayer
+
+--------------------------------------------------
+3.3 配置 Windows 开机后台启动（高级）
+--------------------------------------------------
+
+以管理员身份打开 PowerShell。
+
+进入解压后的目录：
+
+    cd C:\jellyfin2hqplayer
+
+执行：
+
+    .\Create-Jellyfin2HQPlayerTask-AtStartup.ps1
+
+特点：
+
+- Windows 开机自动后台启动
+- 即使用户未登录也会运行
+- 需要输入 Windows 密码
+- 更接近后台服务模式
+
+--------------------------------------------------
+3.4 （可选）自定义端口
+--------------------------------------------------
 
 通过图形界面添加系统环境变量：
 
-PORT=8080
+    PORT=8080
 
-或者通过命令行设置系统环境变量（需要管理员权限）：
+或者通过命令行设置系统环境变量
+（需要管理员权限）：
 
-setx PORT "8080" /M
+    setx PORT "8080" /M
 
 ==================================================
 4. 访问 Web 界面
@@ -84,7 +128,7 @@ setx PORT "8080" /M
 
 访问地址：
 
-http://<IP>:3000
+    http://<IP>:3000
 
 首次启动：
 

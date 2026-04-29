@@ -17,12 +17,13 @@ Jellyfin2HQPlayer 快速开始 (Windows)
     C:\jellyfin2hqplayer
 
 目录下主要文件：
+
 - jellyfin2hqplayer-win-x64.exe
 - hqp-parameters.json
 - hqp-parameters.json.orig
 - start-jellyfin2hqplayer.ps1
-- Create-Jellyfin2HQPlayerTask.ps1
-- Create-Jellyfin2HQPlayerTask-NoLogin.ps1
+- Create-Jellyfin2HQPlayerTask-AtLogon.ps1
+- Create-Jellyfin2HQPlayerTask-AtStartup.ps1
 
 ==================================================
 3. 手动运行 Jellyfin2HQPlayer
@@ -38,26 +39,35 @@ Jellyfin2HQPlayer 快速开始 (Windows)
 
 验证：
 
-- Web UI 是否可访问 `localhost:3000`
+- Web UI 是否可访问：
+
+    http://localhost:3000
 
 ==================================================
-4. 配置开机自启动 Jellyfin2HQPlayer
+4. 配置开机自动启动（推荐）
 ==================================================
 
 以管理员身份打开 PowerShell：
 
-a. 点击“开始菜单”  
-b. 搜索：powershell  
-c. 右键：Windows PowerShell  
+a. 点击“开始菜单”
+b. 搜索：powershell
+c. 右键：Windows PowerShell
 d. 选择：“以管理员身份运行”
 
-然后进入解压后的目录：
+进入解压后的目录：
 
     cd C:\jellyfin2hqplayer
 
 执行：
 
-    .\Create-Jellyfin2HQPlayerTask.ps1
+    .\Create-Jellyfin2HQPlayerTask-AtLogon.ps1
+
+特点：
+
+- 用户登录后自动启动
+- 不需要 Windows 密码
+- 推荐默认方案
+- 最适合 Jellyfin2HQPlayer
 
 --------------------------------------------------
 
@@ -67,11 +77,65 @@ d. 选择：“以管理员身份运行”
 
 验证：
 
-- Web UI 是否可访问 `localhost:3000`
+- Web UI 是否可访问：
+
+    http://localhost:3000
 
 --------------------------------------------------
 
-重启计算机，验证：
+重启计算机后验证：
 
-- Jellyfin2HQPlayer 是否在 Windows 启动时自动启动
-- Web UI 是否可访问 `localhost:3000`
+- 用户登录后是否自动启动
+- Web UI 是否可访问：
+
+    http://localhost:3000
+
+==================================================
+5. 配置 Windows 开机后台启动（高级）
+==================================================
+
+以管理员身份打开 PowerShell。
+
+进入解压后的目录：
+
+    cd C:\jellyfin2hqplayer
+
+执行：
+
+    .\Create-Jellyfin2HQPlayerTask-AtStartup.ps1
+
+特点：
+
+- Windows 开机自动后台启动
+- 即使用户未登录也会运行
+- 需要输入 Windows 密码
+- 更接近后台服务模式
+
+--------------------------------------------------
+
+重启计算机后验证：
+
+- 未登录 Windows 时：
+  Web UI 是否已经可访问
+
+- 登录 Windows 后：
+  Web UI 是否仍然可访问
+
+==================================================
+6. （可选）修改端口
+==================================================
+
+通过图形界面添加系统环境变量：
+
+    PORT=8080
+
+或者通过命令行设置系统环境变量
+（需要管理员权限）：
+
+    setx PORT "8080" /M
+
+==================================================
+7. 默认 Web 地址
+==================================================
+
+    http://localhost:3000

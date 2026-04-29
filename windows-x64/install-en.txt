@@ -4,8 +4,8 @@ Jellyfin2HQPlayer Windows Auto-Start Installation Guide
 
 Important:
 
-You **must** run PowerShell as **Administrator**,
-otherwise the task creation will fail with:
+You MUST run PowerShell as Administrator,
+otherwise task creation will fail with:
 
     Access denied (0x80070005)
 
@@ -30,9 +30,37 @@ Navigate to the actual installation path:
 3. Run the installation script
 ==================================================
 
-Execute:
+Recommended default mode (start after user logon):
 
-    .\Create-Jellyfin2HQPlayerTask.ps1
+    .\Create-Jellyfin2HQPlayerTask-AtLogon.ps1
+
+Features:
+
+- Starts automatically after user logon
+- No Windows password required
+- Recommended for Jellyfin2HQPlayer
+
+--------------------------------------------------
+
+Advanced mode (start at Windows startup):
+
+    .\Create-Jellyfin2HQPlayerTask-AtStartup.ps1
+
+Features:
+
+- Starts automatically when Windows boots
+- Runs even if the user is not logged in
+- Requires Windows password
+- More similar to background service mode
+
+Note:
+
+1. You must enter the Windows account password.
+2. Please distinguish between:
+   - Microsoft Account password
+   - Local Account password
+
+Incorrect password will cause task creation failure.
 
 ==================================================
 4. Installation success message
@@ -41,6 +69,10 @@ Execute:
 If successful, you will see:
 
     Jellyfin2HQPlayer startup task created successfully.
+
+Or:
+
+    Jellyfin2HQPlayer logon startup task created successfully.
 
 ==================================================
 5. Manual test commands
@@ -66,15 +98,15 @@ Delete the task:
 6. Check running status
 ==================================================
 
-Check the task status:
+Check task status:
 
     Get-ScheduledTask -TaskName "Jellyfin2HQPlayer"
 
-Check the task run results:
+Check task run results:
 
     Get-ScheduledTaskInfo -TaskName "Jellyfin2HQPlayer"
 
-Check the current Jellyfin2HQPlayer process:
+Check current Jellyfin2HQPlayer process:
 
     Get-Process jellyfin2hqplayer-win-x64
 
@@ -83,33 +115,57 @@ Or:
     tasklist | findstr jellyfin2hqplayer
 
 ==================================================
-7. Effects after installation
+7. Behavior after installation
 ==================================================
 
-- Jellyfin2HQPlayer will start automatically when Windows boots
-- No command line window will pop up
-- Supports laptops / Thin Clients / battery-powered devices
-- Will start automatically even if the user is not logged in to Windows
-- Supports running in the background without showing
-- Supports auto-deployment and auto-removal
+AtLogon mode:
+
+- Starts automatically after user logon
+- No command window popup
+- Runs hidden in background
+- Recommended for desktop environments
+
+--------------------------------------------------
+
+AtStartup mode:
+
+- Starts automatically when Windows boots
+- Runs even if the user is not logged in
+- Suitable for Thin Client / Mini PC / Headless systems
+- More similar to background service mode
+
+--------------------------------------------------
+
+Important:
+
+If Jellyfin2HQPlayer starts before manual Windows logon,
+please disable the following Windows option:
+
+Settings
+→ Accounts
+→ Sign-in options
+→ Use my sign-in info to automatically finish setting up after an update or restart
+
+Otherwise Windows may automatically trigger the AtLogon task in the background after reboot.
 
 ==================================================
 8. Other
 ==================================================
 
-By default, the task is set to "Run only when the user is logged on," meaning Jellyfin2HQPlayer will only start after the user logs in.
+Default Web URL:
 
-If you need the task to "Run whether the user is logged on or not," execute:
+    http://localhost:3000
 
-    Create-Jellyfin2HQPlayerTask-NoLogin.ps1
+Default port:
 
-**Note:**
+    3000
 
-1. You will need to enter the **Windows user password** when executing the script.
-2. When entering the password, please distinguish between **Microsoft Account** and **Local Account**:
-   - **Microsoft Account**: Enter the password associated with your Microsoft Account (e.g., Outlook, Hotmail).
-   - **Local Account**: Enter the password for your local account.
+To change the port, set system environment variable:
 
-Ensure the password is correct, otherwise the task cannot be created.
+    PORT=8080
 
-You can also manually create a Windows task to achieve automatic startup.
+Or:
+
+    setx PORT "8080" /M
+
+You can also manually create Windows scheduled tasks for auto-start.

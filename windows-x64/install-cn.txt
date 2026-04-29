@@ -30,9 +30,37 @@ Jellyfin2HQPlayer Windows 开机自动启动安装指南
 三、运行安装脚本
 ==================================================
 
-执行：
+推荐默认方案（登录后自动启动）：
 
-    .\Create-Jellyfin2HQPlayerTask.ps1
+    .\Create-Jellyfin2HQPlayerTask-AtLogon.ps1
+
+特点：
+
+- 用户登录后自动启动
+- 不需要 Windows 密码
+- 最适合 Jellyfin2HQPlayer
+
+--------------------------------------------------
+
+高级方案（Windows 开机后台启动）：
+
+    .\Create-Jellyfin2HQPlayerTask-AtStartup.ps1
+
+特点：
+
+- Windows 开机自动后台启动
+- 即使用户未登录也会运行
+- 需要输入 Windows 密码
+- 更接近后台服务模式
+
+注意：
+
+1. 执行脚本时需要输入 Windows 用户密码。
+2. 请区分：
+   - 微软账户（Microsoft Account）密码
+   - 本地账户（Local Account）密码
+
+密码错误将导致任务创建失败。
 
 ==================================================
 四、安装成功提示
@@ -41,6 +69,10 @@ Jellyfin2HQPlayer Windows 开机自动启动安装指南
 如果成功，会显示：
 
     Jellyfin2HQPlayer startup task created successfully.
+
+或者：
+
+    Jellyfin2HQPlayer logon startup task created successfully.
 
 ==================================================
 五、手动测试命令
@@ -86,30 +118,54 @@ Jellyfin2HQPlayer Windows 开机自动启动安装指南
 七、安装完成后的效果
 ==================================================
 
-- Jellyfin2HQPlayer 将在 Windows 开机时自动启动
-- 不会弹出命令行窗口
-- 支持笔记本 / Thin Client / 电池供电设备
-- 即使用户未登录 Windows，也会自动启动
+AtLogon 模式：
+
+- 用户登录后自动启动
+- 不弹出命令行窗口
 - 支持后台隐藏运行
-- 支持自动部署与自动删除
+- 最适合桌面环境
+
+--------------------------------------------------
+
+AtStartup 模式：
+
+- Windows 开机自动后台启动
+- 即使用户未登录也会运行
+- 支持 Thin Client / Mini PC / Headless 场景
+- 更接近后台服务模式
+
+--------------------------------------------------
+
+重要：
+
+如果 Jellyfin2HQPlayer 在手动登录 Windows 之前就已经启动，
+请关闭以下 Windows 选项：
+设置
+→ 账户
+→ 登录选项
+→ 使用我的登录信息在更新后自动完成设置
+
+否则 Windows 可能会在重启后后台自动触发 AtLogon 任务。
+
 
 ==================================================
 八、其他
 ==================================================
 
-默认情况下，任务设置为“只在用户登录时自动运行”，即只有在用户登录后 Jellyfin2HQPlayer 才会启动。
+默认 Web 地址：
 
-如果需要 “不管用户是否登录都要运行”，请执行：
+    http://localhost:3000
 
-    Create-Jellyfin2HQPlayerTask-NoLogin.ps1
+默认端口：
 
-**注意：
+    3000
 
-1. 执行脚本时需要输入 Windows 用户密码。
-2. 密码输入时，请区分 微软账户（Microsoft Account）和 本地账户（Local Account）：
-   - 微软账户（Microsoft Account）：输入微软账户（如 Outlook、Hotmail）的密码。
-   - 本地账户（Local Account）：输入本地账户的密码。
+如需修改端口，可设置系统环境变量：
 
-确保密码正确，否则任务无法创建。
+    PORT=8080
+
+或者：
+
+    setx PORT "8080" /M
 
 你也可以手动创建 Windows 任务来实现自动启动。

@@ -17,12 +17,13 @@ For example:
     C:\jellyfin2hqplayer
 
 Main files in the directory:
+
 - jellyfin2hqplayer-win-x64.exe
 - hqp-parameters.json
 - hqp-parameters.json.orig
 - start-jellyfin2hqplayer.ps1
-- Create-Jellyfin2HQPlayerTask.ps1
-- Create-Jellyfin2HQPlayerTask-NoLogin.ps1
+- Create-Jellyfin2HQPlayerTask-AtLogon.ps1
+- Create-Jellyfin2HQPlayerTask-AtStartup.ps1
 
 ==================================================
 3. Manually run Jellyfin2HQPlayer
@@ -38,17 +39,19 @@ Or:
 
 Verify:
 
-- Check if the Web UI is accessible at `localhost:3000`
+- Check if the Web UI is accessible at:
+
+    http://localhost:3000
 
 ==================================================
-4. Set up Jellyfin2HQPlayer to auto-start on boot
+4. Configure auto-start after user logon (Recommended)
 ==================================================
 
 Open PowerShell as Administrator:
 
-a. Click "Start" menu  
-b. Search for: powershell  
-c. Right-click: Windows PowerShell  
+a. Click the "Start" menu
+b. Search for: powershell
+c. Right-click: Windows PowerShell
 d. Select: "Run as administrator"
 
 Navigate to the extracted directory:
@@ -57,7 +60,14 @@ Navigate to the extracted directory:
 
 Run:
 
-    .\Create-Jellyfin2HQPlayerTask.ps1
+    .\Create-Jellyfin2HQPlayerTask-AtLogon.ps1
+
+Features:
+
+- Starts automatically after user logon
+- No Windows password required
+- Recommended default mode
+- Best suited for Jellyfin2HQPlayer
 
 --------------------------------------------------
 
@@ -67,11 +77,65 @@ Manually verify the task:
 
 Verify:
 
-- Check if the Web UI is accessible at `localhost:3000`
+- Check if the Web UI is accessible at:
+
+    http://localhost:3000
 
 --------------------------------------------------
 
-Reboot your computer and verify:
+Reboot the computer and verify:
 
-- Jellyfin2HQPlayer starts automatically after Windows boots
-- Check if the Web UI is accessible at `localhost:3000`
+- Jellyfin2HQPlayer starts automatically after user logon
+- Check if the Web UI is accessible at:
+
+    http://localhost:3000
+
+==================================================
+5. Configure Windows startup background mode (Advanced)
+==================================================
+
+Open PowerShell as Administrator.
+
+Navigate to the extracted directory:
+
+    cd C:\jellyfin2hqplayer
+
+Run:
+
+    .\Create-Jellyfin2HQPlayerTask-AtStartup.ps1
+
+Features:
+
+- Starts automatically when Windows boots
+- Runs even if the user is not logged in
+- Requires Windows password
+- More similar to background service mode
+
+--------------------------------------------------
+
+Reboot the computer and verify:
+
+- Before Windows logon:
+  Check whether the Web UI is already accessible
+
+- After Windows logon:
+  Check whether the Web UI remains accessible
+
+==================================================
+6. (Optional) Change the port
+==================================================
+
+Add system environment variable via GUI:
+
+    PORT=8080
+
+Or set system environment variable using command line
+(Administrator required):
+
+    setx PORT "8080" /M
+
+==================================================
+7. Default Web URL
+==================================================
+
+    http://localhost:3000
