@@ -91,23 +91,23 @@ Used for:
 
 #### Playing View
 
-![Playing](screenshots/desktop/playing.png)
+<img src="screenshots/desktop/playing.png" width="1000">
 
 #### HQPlayer Queue
 
-![HQPlayer Queue](screenshots/desktop/hqplayer-queue.png)
+<img src="screenshots/desktop/hqplayer-queue.png" width="1000">
 
 #### Spectrum Analyzer
 
-![Spectrum](screenshots/desktop/spectrum.png)
+<img src="screenshots/desktop/spectrum.png" width="1000">
 
 #### Spectrogram
 
-![Spectrogram](screenshots/desktop/spectrogram.png)
+<img src="screenshots/desktop/spectrogram.png" width="1000">
 
 #### VU Meter
 
-![VU Meter](screenshots/desktop/vumeter.png)
+<img src="screenshots/desktop/vumeter.png" width="1000">
 
 ---
 
@@ -115,23 +115,23 @@ Used for:
 
 #### Playing View
 
-![Mobile Playing](screenshots/mobile/playing.png)
+<img src="screenshots/mobile/playing.png" width="350">
 
 #### Settings
 
-![Mobile Settings](screenshots/mobile/setting.png)
+<img src="screenshots/mobile/setting.png" width="350">
 
 #### Spectrum Analyzer
 
-![Mobile Spectrum](screenshots/mobile/spectrum.png)
+<img src="screenshots/mobile/spectrum.png" width="350">
 
 #### Spectrogram
 
-![Mobile Spectrogram](screenshots/mobile/spectrogram.png)
+<img src="screenshots/mobile/spectrogram.png" width="350">
 
 #### VU Meter
 
-![Mobile VU Meter](screenshots/mobile/vumeter.png)
+<img src="screenshots/mobile/vumeter.png" width="350">
 
 ---
 
