@@ -1,0 +1,40 @@
+# Jellyfin2HQPlayer Deployment (Linux)
+
+1. Prepare package
+Upload the release package to the server, for example:
+jellyfin2hqplayer-linux-x64-x.x.x.tar.gz
+
+2. Deploy
+Auto-select latest package:
+sudo ./deploy-jellyfin2hqplayer-linux-x64.sh
+
+Or specify package:
+sudo ./deploy-jellyfin2hqplayer-linux-x64.sh jellyfin2hqplayer-linux-x64-*.tar.gz
+
+3. Port
+Default:
+3000
+
+Specify port during deploy:
+sudo PORT=8080 ./deploy-jellyfin2hqplayer-linux-x64.sh
+
+4. Change Port (after deploy)
+sudo nano /etc/systemd/system/jellyfin2hqplayer.service
+
+Edit:
+Environment=PORT=8080
+
+Then run:
+sudo systemctl daemon-reload
+sudo systemctl restart jellyfin2hqplayer
+
+5. Access
+http://<IP>:PORT
+
+6. Firewall (if not accessible)
+Ubuntu / Debian:
+sudo ufw allow 3000
+
+Fedora:
+sudo firewall-cmd --add-port=3000/tcp --permanent
+sudo firewall-cmd --reload

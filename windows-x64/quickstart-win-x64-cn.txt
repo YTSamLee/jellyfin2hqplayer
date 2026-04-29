@@ -1,0 +1,77 @@
+==================================================
+Jellyfin2HQPlayer 快速开始 (Windows)
+==================================================
+
+1. 下载文件包
+
+    jellyfin2hqplayer-win-x64-x.x.x.rar
+
+==================================================
+2. 解压文件
+==================================================
+
+将文件包解压到任意目录。
+
+例如：
+
+    C:\jellyfin2hqplayer
+
+目录下主要文件：
+- jellyfin2hqplayer-win-x64.exe
+- hqp-parameters.json
+- hqp-parameters.json.orig
+- start-jellyfin2hqplayer.ps1
+- Create-Jellyfin2HQPlayerTask.ps1
+- Create-Jellyfin2HQPlayerTask-NoLogin.ps1
+
+==================================================
+3. 手动运行 Jellyfin2HQPlayer
+==================================================
+
+直接运行：
+
+    start-jellyfin2hqplayer.ps1
+
+或者：
+
+    jellyfin2hqplayer-win-x64.exe
+
+验证：
+
+- Web UI 是否可访问 `localhost:3000`
+
+==================================================
+4. 配置开机自启动 Jellyfin2HQPlayer
+==================================================
+
+以管理员身份打开 PowerShell：
+
+a. 点击“开始菜单”  
+b. 搜索：powershell  
+c. 右键：Windows PowerShell  
+d. 选择：“以管理员身份运行”
+
+然后进入解压后的目录：
+
+    cd C:\jellyfin2hqplayer
+
+执行：
+
+    .\Create-Jellyfin2HQPlayerTask.ps1
+
+--------------------------------------------------
+
+手动验证任务：
+
+    Start-ScheduledTask -TaskName "Jellyfin2HQPlayer"
+
+验证：
+
+- Web UI 是否可访问 `localhost:3000`
+
+--------------------------------------------------
+
+重启计算机，验证：
+
+- Jellyfin2HQPlayer 是否在 Windows 启动时自动启动
+- Web UI 是否可访问 `localhost:3000`

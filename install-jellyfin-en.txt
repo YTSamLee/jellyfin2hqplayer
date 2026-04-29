@@ -1,0 +1,64 @@
+==================================================
+Jellyfin Quick Start
+==================================================
+
+1. Install Jellyfin
+==================================================
+
+1.1 Linux x64 (Debian / Ubuntu / Fedora)
+
+a. Debian / Ubuntu:
+
+    curl -s https://repo.jellyfin.org/install-debuntu.sh | sudo bash
+
+b. Fedora:
+
+    sudo dnf install \
+    https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+    sudo dnf install jellyfin
+
+1.2 Windows x64
+
+Download and install:
+
+    https://jellyfin.org/downloads/windows
+
+1.3 macOS x64 / Apple Silicon
+
+Download and install:
+
+    https://jellyfin.org/downloads/macos
+
+==================================================
+2. Initialize Jellyfin
+==================================================
+
+After installation:
+
+- Start Jellyfin Server
+- Open browser:
+
+    http://<IP>:8096
+
+- Create administrator account
+- Add music library
+  (FLAC / WAV / DSF etc.)
+
+==================================================
+3. Jellyfin Plugins (Optional)
+==================================================
+
+- MusicBrainz
+- AudioDB
+- Discogs
+- Cover Art Archive
+
+Provides metadata and cover art information for music resources.
+
+==================================================
+4. Jellyfin2HQPlayer Plugin (Optional)
+==================================================
+
+Provides track mapping between Jellyfin and HQPlayer, Path → ID mapping.

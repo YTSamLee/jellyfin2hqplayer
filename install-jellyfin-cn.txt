@@ -1,0 +1,64 @@
+==================================================
+Jellyfin 快速开始
+==================================================
+
+1. 安装 Jellyfin
+==================================================
+
+1.1 Linux x64 (Debian / Ubuntu / Fedora)
+
+a. Debian / Ubuntu：
+
+    curl -s https://repo.jellyfin.org/install-debuntu.sh | sudo bash
+
+b. Fedora：
+
+    sudo dnf install \
+    https://download1.rpmfusion.org/free/fedora/rpmfusion-free-release-$(rpm -E %fedora).noarch.rpm \
+    https://download1.rpmfusion.org/nonfree/fedora/rpmfusion-nonfree-release-$(rpm -E %fedora).noarch.rpm
+
+    sudo dnf install jellyfin
+
+1.2 Windows x64
+
+下载并安装：
+
+    https://jellyfin.org/downloads/windows
+
+1.3 macOS x64 / Apple Silicon
+
+下载并安装：
+
+    https://jellyfin.org/downloads/macos
+
+==================================================
+2. 初始化 Jellyfin
+==================================================
+
+安装完成后：
+
+- 启动 Jellyfin Server
+- 浏览器打开：
+
+    http://<IP>:8096
+
+- 创建管理员账号
+- 添加音乐库
+  （FLAC / WAV / DSF 等）
+
+==================================================
+3. Jellyfin 插件（可选）
+==================================================
+
+- MusicBrainz
+- AudioDB
+- Discogs
+- Cover Art Archive
+
+提供音乐资源的 metadata 和封面图信息。
+
+==================================================
+4. Jellyfin2HQPlayer 插件（可选）
+==================================================
+
+提供 Jellyfin 与 HQPlayer 的曲目映射，Path → ID 映射。

@@ -1,0 +1,115 @@
+==================================================
+Jellyfin2HQPlayer Windows 开机自动启动安装指南
+==================================================
+
+重要：
+
+必须以“管理员身份”运行 PowerShell，
+否则创建任务会失败，并出现：
+
+    Access denied (0x80070005)
+
+==================================================
+一、以管理员身份打开 PowerShell
+==================================================
+
+1. 点击“开始菜单”
+2. 搜索：powershell
+3. 右键：Windows PowerShell
+4. 选择：“以管理员身份运行”
+
+==================================================
+二、进入 Jellyfin2HQPlayer 实际目录
+==================================================
+
+进入实际安装路径：
+
+    cd C:\jellyfin2hqplayer
+
+==================================================
+三、运行安装脚本
+==================================================
+
+执行：
+
+    .\Create-Jellyfin2HQPlayerTask.ps1
+
+==================================================
+四、安装成功提示
+==================================================
+
+如果成功，会显示：
+
+    Jellyfin2HQPlayer startup task created successfully.
+
+==================================================
+五、手动测试命令
+==================================================
+
+手动启动任务：
+
+    Start-ScheduledTask -TaskName "Jellyfin2HQPlayer"
+
+手动停止 Jellyfin2HQPlayer 进程：
+
+    Stop-Process -Name "jellyfin2hqplayer-win-x64" -Force
+
+或者：
+
+    taskkill /IM jellyfin2hqplayer-win-x64.exe /F
+
+删除任务：
+
+    Unregister-ScheduledTask -TaskName "Jellyfin2HQPlayer" -Confirm:$false
+
+==================================================
+六、查看运行状态
+==================================================
+
+查看任务状态：
+
+    Get-ScheduledTask -TaskName "Jellyfin2HQPlayer"
+
+查看任务运行结果：
+
+    Get-ScheduledTaskInfo -TaskName "Jellyfin2HQPlayer"
+
+查看当前 Jellyfin2HQPlayer 进程：
+
+    Get-Process jellyfin2hqplayer-win-x64
+
+或者：
+
+    tasklist | findstr jellyfin2hqplayer
+
+==================================================
+七、安装完成后的效果
+==================================================
+
+- Jellyfin2HQPlayer 将在 Windows 开机时自动启动
+- 不会弹出命令行窗口
+- 支持笔记本 / Thin Client / 电池供电设备
+- 即使用户未登录 Windows，也会自动启动
+- 支持后台隐藏运行
+- 支持自动部署与自动删除
+
+==================================================
+八、其他
+==================================================
+
+默认情况下，任务设置为“只在用户登录时自动运行”，即只有在用户登录后 Jellyfin2HQPlayer 才会启动。
+
+如果需要 “不管用户是否登录都要运行”，请执行：
+
+    Create-Jellyfin2HQPlayerTask-NoLogin.ps1
+
+**注意：
+
+1. 执行脚本时需要输入 Windows 用户密码。
+2. 密码输入时，请区分 微软账户（Microsoft Account）和 本地账户（Local Account）：
+   - 微软账户（Microsoft Account）：输入微软账户（如 Outlook、Hotmail）的密码。
+   - 本地账户（Local Account）：输入本地账户的密码。
+
+确保密码正确，否则任务无法创建。
+
+你也可以手动创建 Windows 任务来实现自动启动。

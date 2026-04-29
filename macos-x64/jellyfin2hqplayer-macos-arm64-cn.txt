@@ -1,0 +1,57 @@
+# Jellyfin2HQPlayer 部署指南（macOS arm64）
+
+1. 准备安装包
+将发布包放到当前目录，例如：
+jellyfin2hqplayer-macos-arm64-x.x.x.tar.gz
+
+2. 部署
+自动选择最新包：
+./deploy-jellyfin2hqplayer-macos-arm64.sh
+
+或指定包：
+./deploy-jellyfin2hqplayer-macos-arm64.sh jellyfin2hqplayer-macos-arm64-*.tar.gz
+
+3. 端口
+默认端口：
+3000
+
+部署时指定端口：
+PORT=8080 ./deploy-jellyfin2hqplayer-macos-arm64.sh
+
+4. 修改端口（部署后）
+编辑 plist：
+nano ~/Library/LaunchAgents/com.jellyfin2hqplayer.plist
+
+找到：
+<key>PORT</key>
+<string>3000</string>
+
+修改为：
+<string>8080</string>
+
+然后执行：
+launchctl bootout gui/$(id -u)/com.jellyfin2hqplayer
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jellyfin2hqplayer.plist
+launchctl kickstart -k gui/$(id -u)/com.jellyfin2hqplayer
+
+5. 访问
+http://<IP>:PORT
+
+6. 无法访问排查
+查看服务状态：
+launchctl print gui/$(id -u)/com.jellyfin2hqplayer
+
+查看日志：
+tail -f /tmp/jellyfin2hqplayer.log
+tail -f /tmp/jellyfin2hqplayer.err
+
+7. macOS 权限问题
+如果被系统限制后台运行：
+系统设置 → 通用 → 登录项 → 允许 jellyfin2hqplayer
+
+8. 停止 / 重启服务
+重启：
+launchctl kickstart -k gui/$(id -u)/com.jellyfin2hqplayer
+
+停止：
+launchctl bootout gui/$(id -u)/com.jellyfin2hqplayer

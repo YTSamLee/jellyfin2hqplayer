@@ -1,0 +1,40 @@
+# Jellyfin2HQPlayer 部署（Linux）
+
+1. 准备安装包
+将发布包上传到服务器，例如：
+jellyfin2hqplayer-linux-x64-x.x.x.tar.gz
+
+2. 执行部署
+自动选择最新版本：
+sudo ./deploy-jellyfin2hqplayer-linux-x64.sh
+
+或指定安装包：
+sudo ./deploy-jellyfin2hqplayer-linux-x64.sh jellyfin2hqplayer-linux-x64-*.tar.gz
+
+3. 端口设置
+默认端口：
+3000
+
+部署时指定端口：
+sudo PORT=8080 ./deploy-jellyfin2hqplayer-linux-x64.sh
+
+4. 修改端口（已部署）
+sudo nano /etc/systemd/system/jellyfin2hqplayer.service
+
+修改：
+Environment=PORT=8080
+
+然后执行：
+sudo systemctl daemon-reload
+sudo systemctl restart jellyfin2hqplayer
+
+5. 访问
+http://<IP>:PORT
+
+6. 防火墙（如无法访问）
+Ubuntu / Debian：
+sudo ufw allow 3000
+
+Fedora：
+sudo firewall-cmd --add-port=3000/tcp --permanent
+sudo firewall-cmd --reload

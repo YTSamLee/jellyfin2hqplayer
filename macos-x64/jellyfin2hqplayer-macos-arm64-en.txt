@@ -1,0 +1,57 @@
+# Jellyfin2HQPlayer Deployment (macOS arm64)
+
+1. Prepare package
+Place the release package in current directory, for example:
+jellyfin2hqplayer-macos-arm64-x.x.x.tar.gz
+
+2. Deploy
+Auto-select latest package:
+./deploy-jellyfin2hqplayer-macos-arm64.sh
+
+Or specify package:
+./deploy-jellyfin2hqplayer-macos-arm64.sh jellyfin2hqplayer-macos-arm64-*.tar.gz
+
+3. Port
+Default:
+3000
+
+Specify port during deploy:
+PORT=8080 ./deploy-jellyfin2hqplayer-macos-arm64.sh
+
+4. Change Port (after deploy)
+Edit plist:
+nano ~/Library/LaunchAgents/com.jellyfin2hqplayer.plist
+
+Find:
+<key>PORT</key>
+<string>3000</string>
+
+Change to:
+<string>8080</string>
+
+Then reload:
+launchctl bootout gui/$(id -u)/com.jellyfin2hqplayer
+launchctl bootstrap gui/$(id -u) ~/Library/LaunchAgents/com.jellyfin2hqplayer.plist
+launchctl kickstart -k gui/$(id -u)/com.jellyfin2hqplayer
+
+5. Access
+http://<IP>:PORT
+
+6. If not accessible
+Check service:
+launchctl print gui/$(id -u)/com.jellyfin2hqplayer
+
+Check logs:
+tail -f /tmp/jellyfin2hqplayer.log
+tail -f /tmp/jellyfin2hqplayer.err
+
+7. macOS Permission
+If blocked in background:
+System Settings → General → Login Items → Allow jellyfin2hqplayer
+
+8. Stop / Restart
+Restart:
+launchctl kickstart -k gui/$(id -u)/com.jellyfin2hqplayer
+
+Stop:
+launchctl bootout gui/$(id -u)/com.jellyfin2hqplayer

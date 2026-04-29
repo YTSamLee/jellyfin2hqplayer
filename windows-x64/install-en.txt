@@ -1,0 +1,115 @@
+==================================================
+Jellyfin2HQPlayer Windows Auto-Start Installation Guide
+==================================================
+
+Important:
+
+You **must** run PowerShell as **Administrator**,
+otherwise the task creation will fail with:
+
+    Access denied (0x80070005)
+
+==================================================
+1. Open PowerShell as Administrator
+==================================================
+
+1. Click the "Start" menu
+2. Search for: powershell
+3. Right-click: Windows PowerShell
+4. Select: "Run as administrator"
+
+==================================================
+2. Navigate to the Jellyfin2HQPlayer directory
+==================================================
+
+Navigate to the actual installation path:
+
+    cd C:\jellyfin2hqplayer
+
+==================================================
+3. Run the installation script
+==================================================
+
+Execute:
+
+    .\Create-Jellyfin2HQPlayerTask.ps1
+
+==================================================
+4. Installation success message
+==================================================
+
+If successful, you will see:
+
+    Jellyfin2HQPlayer startup task created successfully.
+
+==================================================
+5. Manual test commands
+==================================================
+
+Manually start the task:
+
+    Start-ScheduledTask -TaskName "Jellyfin2HQPlayer"
+
+Manually stop Jellyfin2HQPlayer process:
+
+    Stop-Process -Name "jellyfin2hqplayer-win-x64" -Force
+
+Or:
+
+    taskkill /IM jellyfin2hqplayer-win-x64.exe /F
+
+Delete the task:
+
+    Unregister-ScheduledTask -TaskName "Jellyfin2HQPlayer" -Confirm:$false
+
+==================================================
+6. Check running status
+==================================================
+
+Check the task status:
+
+    Get-ScheduledTask -TaskName "Jellyfin2HQPlayer"
+
+Check the task run results:
+
+    Get-ScheduledTaskInfo -TaskName "Jellyfin2HQPlayer"
+
+Check the current Jellyfin2HQPlayer process:
+
+    Get-Process jellyfin2hqplayer-win-x64
+
+Or:
+
+    tasklist | findstr jellyfin2hqplayer
+
+==================================================
+7. Effects after installation
+==================================================
+
+- Jellyfin2HQPlayer will start automatically when Windows boots
+- No command line window will pop up
+- Supports laptops / Thin Clients / battery-powered devices
+- Will start automatically even if the user is not logged in to Windows
+- Supports running in the background without showing
+- Supports auto-deployment and auto-removal
+
+==================================================
+8. Other
+==================================================
+
+By default, the task is set to "Run only when the user is logged on," meaning Jellyfin2HQPlayer will only start after the user logs in.
+
+If you need the task to "Run whether the user is logged on or not," execute:
+
+    Create-Jellyfin2HQPlayerTask-NoLogin.ps1
+
+**Note:**
+
+1. You will need to enter the **Windows user password** when executing the script.
+2. When entering the password, please distinguish between **Microsoft Account** and **Local Account**:
+   - **Microsoft Account**: Enter the password associated with your Microsoft Account (e.g., Outlook, Hotmail).
+   - **Local Account**: Enter the password for your local account.
+
+Ensure the password is correct, otherwise the task cannot be created.
+
+You can also manually create a Windows task to achieve automatic startup.

@@ -1,0 +1,77 @@
+==================================================
+Jellyfin2HQPlayer Quick Start (Windows)
+==================================================
+
+1. Download the package
+
+    jellyfin2hqplayer-win-x64-x.x.x.rar
+
+==================================================
+2. Extract the files
+==================================================
+
+Extract the package to any directory.
+
+For example:
+
+    C:\jellyfin2hqplayer
+
+Main files in the directory:
+- jellyfin2hqplayer-win-x64.exe
+- hqp-parameters.json
+- hqp-parameters.json.orig
+- start-jellyfin2hqplayer.ps1
+- Create-Jellyfin2HQPlayerTask.ps1
+- Create-Jellyfin2HQPlayerTask-NoLogin.ps1
+
+==================================================
+3. Manually run Jellyfin2HQPlayer
+==================================================
+
+Run directly:
+
+    start-jellyfin2hqplayer.ps1
+
+Or:
+
+    jellyfin2hqplayer-win-x64.exe
+
+Verify:
+
+- Check if the Web UI is accessible at `localhost:3000`
+
+==================================================
+4. Set up Jellyfin2HQPlayer to auto-start on boot
+==================================================
+
+Open PowerShell as Administrator:
+
+a. Click "Start" menu  
+b. Search for: powershell  
+c. Right-click: Windows PowerShell  
+d. Select: "Run as administrator"
+
+Navigate to the extracted directory:
+
+    cd C:\jellyfin2hqplayer
+
+Run:
+
+    .\Create-Jellyfin2HQPlayerTask.ps1
+
+--------------------------------------------------
+
+Manually verify the task:
+
+    Start-ScheduledTask -TaskName "Jellyfin2HQPlayer"
+
+Verify:
+
+- Check if the Web UI is accessible at `localhost:3000`
+
+--------------------------------------------------
+
+Reboot your computer and verify:
+
+- Jellyfin2HQPlayer starts automatically after Windows boots
+- Check if the Web UI is accessible at `localhost:3000`
