@@ -14,10 +14,10 @@ Unregister-ScheduledTask `
 # Create task action
 $taskAction = New-ScheduledTaskAction `
   -Execute "powershell.exe" `
-  -Argument "-ExecutionPolicy Bypass -File `"$startScript`""
+  -Argument "-ExecutionPolicy Bypass -NoProfile -File `"$startScript`""
 
-# Run at startup
-$taskTrigger = New-ScheduledTaskTrigger -AtStartup
+# Run at user logon
+$taskTrigger = New-ScheduledTaskTrigger -AtLogOn -User "$env:USERDOMAIN\$env:USERNAME"
 
 # Task settings
 $taskSettings = New-ScheduledTaskSettingsSet `
@@ -26,30 +26,18 @@ $taskSettings = New-ScheduledTaskSettingsSet `
   -StartWhenAvailable `
   -Compatibility Win8
 
-# Run whether user is logged on or not
-$user = "$env:USERDOMAIN\$env:USERNAME"
-
-$password = Read-Host `
-  "Enter Windows password for $user" `
-  -AsSecureString
-
-$plainPassword = [Runtime.InteropServices.Marshal]::PtrToStringAuto(
-  [Runtime.InteropServices.Marshal]::SecureStringToBSTR($password)
-)
-
 try {
   Register-ScheduledTask `
     -TaskName "Jellyfin2HQPlayer" `
     -Action $taskAction `
     -Trigger $taskTrigger `
     -Settings $taskSettings `
-    -Description "Start Jellyfin2HQPlayer on Windows startup" `
-    -User $user `
-    -Password $plainPassword `
-    -RunLevel Highest
+    -Description "Start Jellyfin2HQPlayer after user logon" `
+    -RunLevel Highest `
+    -Force
 
   Write-Host ""
-  Write-Host "Jellyfin2HQPlayer startup task created successfully."
+  Write-Host "Jellyfin2HQPlayer logon startup task created successfully."
 }
 catch {
   Write-Host ""
