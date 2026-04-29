@@ -85,6 +85,55 @@ Used for:
 - HQPlayer playback history
 
 ---
+## 2.1 Screenshots
+
+### Desktop UI
+
+#### Playing View
+
+![Playing](screenshots/desktop/playing.png)
+
+#### HQPlayer Queue
+
+![HQPlayer Queue](screenshots/desktop/hqplayer-queue.png)
+
+#### Spectrum Analyzer
+
+![Spectrum](screenshots/desktop/spectrum.png)
+
+#### Spectrogram
+
+![Spectrogram](screenshots/desktop/spectrogram.png)
+
+#### VU Meter
+
+![VU Meter](screenshots/desktop/vumeter.png)
+
+---
+
+### Mobile UI
+
+#### Playing View
+
+![Mobile Playing](screenshots/mobile/playing.png)
+
+#### Settings
+
+![Mobile Settings](screenshots/mobile/setting.png)
+
+#### Spectrum Analyzer
+
+![Mobile Spectrum](screenshots/mobile/spectrum.png)
+
+#### Spectrogram
+
+![Mobile Spectrogram](screenshots/mobile/spectrogram.png)
+
+#### VU Meter
+
+![Mobile VU Meter](screenshots/mobile/vumeter.png)
+
+---
 
 ## 3. Jellyfin Plugin
 
