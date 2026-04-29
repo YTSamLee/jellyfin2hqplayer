@@ -117,21 +117,21 @@ This architecture achieves:
 Links:
 
 - [install-jellyfin-en.txt](install-jellyfin-en.txt)
-- [install-jellyfin-cn.txt](install-jellyfin-cn.txt)
+- [install-jellyfin-cn.txt(中文版)](install-jellyfin-cn.txt)
 
 ### 5.2 Deploy Jellyfin2HQPlayer
 
 Links:
 
 - [jellyfin2hqplayer-quickstart-en.txt](jellyfin2hqplayer-quickstart-en.txt)
-- [jellyfin2hqplayer-quickstart-cn.txt](jellyfin2hqplayer-quickstart-cn.txt)
+- [jellyfin2hqplayer-quickstart-cn.txt(中文版)](jellyfin2hqplayer-quickstart-cn.txt)
 
 ### 5.3 Deploy Jellyfin2HQPlayerPlugin
 
 Links:
 
 - [Jellyfin2HQPlayerPlugin-en.txt](Jellyfin2HQPlayerPlugin-en.txt)
-- [Jellyfin2HQPlayerPlugin-cn.txt](Jellyfin2HQPlayerPlugin-cn.txt)
+- [Jellyfin2HQPlayerPlugin-cn.txt(中文版)](Jellyfin2HQPlayerPlugin-cn.txt)
 
 ---
 
