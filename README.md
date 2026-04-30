@@ -108,6 +108,14 @@ VU Meter
 
 <img src="screenshots/desktop/vumeter.png" width="800">
 
+Preview Play
+
+<img src="screenshots/desktop/preview.png" width="800">
+
+Play To
+
+<img src="screenshots/desktop/playto.png" width="800">
+
 ---
 
 ### Mobile UI

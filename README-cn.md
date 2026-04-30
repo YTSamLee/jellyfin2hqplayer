@@ -110,6 +110,14 @@ VU 表
 
 <img src="screenshots/desktop/vumeter.png" width="800">
 
+浏览器试听
+
+<img src="screenshots/desktop/preview.png" width="800">
+
+播放到HQPlayer
+
+<img src="screenshots/desktop/playto.png" width="800">
+
 ---
 
 ### 移动端 UI
