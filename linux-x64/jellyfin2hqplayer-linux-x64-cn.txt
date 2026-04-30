@@ -14,11 +14,11 @@
 2. 执行部署
 自动选择最新版本：
 
-     sudo ./deploy-jellyfin2hqplayer-linux-x64.sh
+sudo ./deploy-jellyfin2hqplayer-linux-x64.sh
 
 或指定安装包：
 
-     sudo ./deploy-jellyfin2hqplayer-linux-x64.sh jellyfin2hqplayer-linux-x64-*.tar.gz
+sudo ./deploy-jellyfin2hqplayer-linux-x64.sh jellyfin2hqplayer-linux-x64-*.tar.gz
 
 3. 端口设置
 默认端口：
