@@ -112,7 +112,7 @@ VU 表
 
 浏览器试听
 
-<img src="screenshots/desktop/preview.png" width="800">
+<img src="screenshots/desktop/previewplay.png" width="800">
 
 播放到HQPlayer
 

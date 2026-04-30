@@ -110,7 +110,7 @@ VU Meter
 
 Preview Play
 
-<img src="screenshots/desktop/preview.png" width="800">
+<img src="screenshots/desktop/previewplay.png" width="800">
 
 Play To
 
