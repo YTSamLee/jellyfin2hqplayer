@@ -1,17 +1,22 @@
 # Jellyfin2HQPlayer 部署指南（macOS arm64）
 
 1. 准备安装包
-   - 选项 1：直接在目标主机上下载发布包
-     在目标主机上，使用 `wget` 或 `curl` 下载发布包。例如：
+- 选项 1：直接在目标主机上下载发布包
+在目标主机上，使用 `wget` 或 `curl` 下载发布包。例如：
 
-     wget https://github.com/YTSamLee/jellyfin2hqplayer/releases/download/v1.3.0/jellyfin2hqplayer-macos-arm64-1.3.0.tar.gz
-     # 或者
-     curl -LO https://github.com/YTSamLee/jellyfin2hqplayer/releases/download/v1.3.0/jellyfin2hqplayer-macos-arm64-1.3.0.tar.gz
+wget https://github.com/YTSamLee/jellyfin2hqplayer/releases/download/v1.3.0/jellyfin2hqplayer-macos-arm64-1.3.0.tar.gz
+wget https://github.com/YTSamLee/jellyfin2hqplayer/releases/download/v1.3.0/deploy-jellyfin2hqplayer-macos-arm64.sh
+# 或者
+curl -LO https://github.com/YTSamLee/jellyfin2hqplayer/releases/download/v1.3.0/jellyfin2hqplayer-macos-arm64-1.3.0.tar.gz
+curl -LO https://github.com/YTSamLee/jellyfin2hqplayer/releases/download/v1.3.0/deploy-jellyfin2hqplayer-macos-arm64.sh
 
-   - 选项 2：手动传输文件到目标主机
-     另外，你也可以使用 SCP、FTP 或其他文件传输方式将发布包上传到目标主机。一旦文件传输完成，就可以继续后续的部署步骤。
+- 选项 2：手动传输文件到目标主机
+另外，你也可以使用 SCP、FTP 或其他文件传输方式将发布包上传到目标主机。一旦文件传输完成，就可以继续后续的部署步骤。
 
 2. 部署
+赋予脚本执行权限：
+chmod +x deploy-jellyfin2hqplayer-macos-arm64.sh
+
 自动选择最新包：
 ./deploy-jellyfin2hqplayer-macos-arm64.sh
 

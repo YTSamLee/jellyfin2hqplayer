@@ -1,17 +1,22 @@
 # Jellyfin2HQPlayer Deployment (macOS arm64)
 
 1. Prepare package
-   - Option 1: Download the release package directly to the target machine
-     On the target machine, use `wget` or `curl` to download the release package. For example:
+- Option 1: Download the release package directly to the target machine
+On the target machine, use `wget` or `curl` to download the release package. For example:
 
-     wget https://github.com/YTSamLee/jellyfin2hqplayer/releases/download/v1.3.0/jellyfin2hqplayer-macos-arm64-1.3.0.tar.gz
-     # or
-     curl -LO https://github.com/YTSamLee/jellyfin2hqplayer/releases/download/v1.3.0/jellyfin2hqplayer-macos-arm64-1.3.0.tar.gz
+wget https://github.com/YTSamLee/jellyfin2hqplayer/releases/download/v1.3.0/jellyfin2hqplayer-macos-arm64-1.3.0.tar.gz
+wget https://github.com/YTSamLee/jellyfin2hqplayer/releases/download/v1.3.0/deploy-jellyfin2hqplayer-macos-arm64.sh
+# or
+curl -LO https://github.com/YTSamLee/jellyfin2hqplayer/releases/download/v1.3.0/jellyfin2hqplayer-macos-arm64-1.3.0.tar.gz
+curl -LO https://github.com/YTSamLee/jellyfin2hqplayer/releases/download/v1.3.0/deploy-jellyfin2hqplayer-macos-arm64.sh
 
-   - Option 2: Manually transfer the file to the target machine
-     Alternatively, you can upload the release package to the target machine using SCP, FTP, or any other preferred file transfer method. Once the file is on the target machine, proceed to the next steps.
+- Option 2: Manually transfer the file to the target machine
+Alternatively, you can upload the release package to the target machine using SCP, FTP, or any other preferred file transfer method. Once the file is on the target machine, proceed to the next steps.
 
 2. Deploy
+Make the script executable:
+chmod +x deploy-jellyfin2hqplayer-macos-arm64.sh
+
 Auto-select latest package:
 ./deploy-jellyfin2hqplayer-macos-arm64.sh
 
