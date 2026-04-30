@@ -233,14 +233,15 @@ See the [LICENSE](./LICENSE) file for full terms.
 
 ---
 
-### 中文版本
-
-[README 中文版](README-cn.md)
-
----
-
 ## Feedback and Discussion
 
 Feel free to provide feedback and discuss the project in my personal thread on [audiophilestyle.com](https://audiophilestyle.com/forums/topic/71901-jellyfin2hqplayer-%E2%80%93-control-hqplayer-from-jellyfin-file-based-bit-perfect-playback/#comment-1337850).
 
 Looking forward to your valuable suggestions and comments!
+
+---
+
+### 中文版本
+
+[README 中文版](README-cn.md)
+
