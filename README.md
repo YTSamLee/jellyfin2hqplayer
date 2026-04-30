@@ -29,16 +29,16 @@ HQPlayer directly opens and reads the audio files.
 
 ### 1.2 HTTP File Mode (HQPlayer Recommended)
 
-The original audio file is transmitted via the Jellyfin HTTP API (no transcoding).
+The original audio file is transmitted via the Jellyfin HTTP API (no transcoding when properly configured).
 
 Features:
 
-- Sequential stream model
+- File-like sequential access (sequential stream model)
 - Continuous sequential reading
-- No Range requests supported
-- HQPlayer actively pulls data and controls playback
-- Behaves like file-like playback
-- Maintains bit-perfect architecture
+- No Range requests
+- HQPlayer actively pulls audio data
+- Behaves like local file access
+- Retains playback control
 
 Used for:
 
@@ -52,10 +52,9 @@ The original audio file is transmitted via the Jellyfin HTTP API (no transcoding
 
 Features:
 
-- Random-access stream model
+- HTTP streaming with Range access (random-access stream model)
 - Supports Range requests
-- More traditional HTTP Stream behavior
-- Compatible with more player scenarios
+- Standard HTTP streaming behavior
 
 Used for:
 
@@ -65,7 +64,7 @@ Used for:
 
 ### 1.4 Playback Architecture Topology
 
-[TOPOLOGY.md](TOPOLOGY.md)
+[English](TOPOLOGY.md) | [中文](TOPOLOGY-cn.md)
 
 ---
 
@@ -89,49 +88,59 @@ Used for:
 
 ### Desktop UI
 
-#### Playing View
+Playing View
 
-<img src="screenshots/desktop/playing.png" width="1000">
+<img src="screenshots/desktop/playing.png" width="800">
 
-#### HQPlayer Queue
+HQPlayer Queue
 
-<img src="screenshots/desktop/hqplayer-queue.png" width="1000">
+<img src="screenshots/desktop/hqplayer-queue.png" width="800">
 
-#### Spectrum Analyzer
+Spectrum Analyzer
 
-<img src="screenshots/desktop/spectrum.png" width="1000">
+<img src="screenshots/desktop/spectrum.png" width="800">
 
-#### Spectrogram
+Spectrogram
 
-<img src="screenshots/desktop/spectrogram.png" width="1000">
+<img src="screenshots/desktop/spectrogram.png" width="800">
 
-#### VU Meter
+VU Meter
 
-<img src="screenshots/desktop/vumeter.png" width="1000">
+<img src="screenshots/desktop/vumeter.png" width="800">
 
 ---
 
 ### Mobile UI
 
-#### Playing View
-
-<img src="screenshots/mobile/playing.png" width="350">
-
-#### Settings
-
-<img src="screenshots/mobile/setting.png" width="350">
-
-#### Spectrum Analyzer
-
-<img src="screenshots/mobile/spectrum.png" width="350">
-
-#### Spectrogram
-
-<img src="screenshots/mobile/spectrogram.png" width="350">
-
-#### VU Meter
-
-<img src="screenshots/mobile/vumeter.png" width="350">
+<table>
+  <tr>
+    <td>
+      <div align="center">Playing View</div>
+      <img src="screenshots/mobile/playing.png" width="250">
+    </td>
+    <td>
+      <div align="center">Settings</div>
+      <img src="screenshots/mobile/setting.png" width="250">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center">Spectrum Analyzer</div>
+      <img src="screenshots/mobile/spectrum.png" width="250">
+    </td>
+    <td>
+      <div align="center">Spectrogram</div>
+      <img src="screenshots/mobile/spectrogram.png" width="250">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center">VU Meter</div>
+      <img src="screenshots/mobile/vumeter.png" width="250">
+    </td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
 
 ---
 
@@ -166,22 +175,19 @@ This architecture achieves:
 
 Links:
 
-- [install-jellyfin-en.txt](install-jellyfin-en.txt)
-- [install-jellyfin-cn.txt(中文版)](install-jellyfin-cn.txt)
+- [English](install-jellyfin-en.txt) | [中文](install-jellyfin-cn.txt)
 
 ### 5.2 Deploy Jellyfin2HQPlayer
 
 Links:
 
-- [jellyfin2hqplayer-quickstart-en.txt](jellyfin2hqplayer-quickstart-en.txt)
-- [jellyfin2hqplayer-quickstart-cn.txt(中文版)](jellyfin2hqplayer-quickstart-cn.txt)
+- [English](jellyfin2hqplayer-quickstart-en.txt) | [中文](jellyfin2hqplayer-quickstart-cn.txt)
 
 ### 5.3 Deploy Jellyfin2HQPlayerPlugin
 
 Links:
 
-- [Jellyfin2HQPlayerPlugin-en.txt](Jellyfin2HQPlayerPlugin-en.txt)
-- [Jellyfin2HQPlayerPlugin-cn.txt(中文版)](Jellyfin2HQPlayerPlugin-cn.txt)
+- [English](Jellyfin2HQPlayerPlugin-en.txt) | [中文](Jellyfin2HQPlayerPlugin-cn.txt)
 
 ---
 
@@ -195,4 +201,4 @@ Email: 563422071@qq.com
 
 ### 中文版本
 
-如需查看中文版本，请访问 [README-cn.md](README-cn.md)
+[README 中文版](README-cn.md)

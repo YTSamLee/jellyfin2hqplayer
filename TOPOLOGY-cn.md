@@ -1,13 +1,13 @@
-# Jellyfin2HQPlayer Three Playback Modes  
-Topology and Features
+# Jellyfin2HQPlayer 三种播放模式
+拓扑与特性
 
 ---
 
-## 1. File Mode (Recommended)
+## 1. 文件模式（推荐）
 
 ```text
 +------------------------------+
-|      Browser (Web UI)        |
+|      浏览器（Web UI）        |
 +---------------+--------------+
                 |
                 | HTTP
@@ -20,19 +20,19 @@ Topology and Features
                  v
 
 +------------------------------------------------------+
-| Host A (Same Machine)                                |
+| 主机 A（同一台机器）                                 |
 |                                                      |
 |  +------------------+   +-------------------------+  |
 |  |     Jellyfin     |   |        HQPlayer         |  |
-|  |   (Library/Meta) |   |   (Playback Engine)     |  |
+|  | （媒体库/元数据）|   |    （播放引擎）         |  |
 |  +---------+--------+   +------------+------------+  |
 |            |                         |               |
-|            | Return Path             | Read File     |
+|            | 返回路径                | 读取文件      |
 |            +-----------+-------------+               |
 |                        |                             |
 |                        v                             |
 |         +-------------------------------+            |
-|         |       Local File System       |            |
+|         |         本地文件系统          |            |
 |         +---------------+---------------+            |
 |                         |                            |
 +-------------------------+----------------------------+
@@ -42,28 +42,28 @@ Topology and Features
             v                           v
 
 +----------------------+   +----------------------+
-| NAS Mount Path       |   | Local Disk Path      |
+| NAS 挂载路径         |   | 本地磁盘路径         |
 | /mnt/NASMusic/...    |   | /local/music/...     |
 +----------------------+   +----------------------+
 ```
 
-### Features
+### 特性
 
-- Jellyfin and HQPlayer deployed on the same machine
-- HQPlayer directly reads local audio files
-- HQPlayer has full file control
-- No streaming
-- No transcoding
-- Shortest signal path
-- Native bit-perfect playback
+- Jellyfin 与 HQPlayer 部署在同一台机器
+- HQPlayer 直接读取本地音频文件
+- 无流媒体传输
+- 无转码
+- 最短信号路径
+- 原生 bit-perfect 播放
+- HQPlayer 拥有完整文件控制能力
 
 ---
 
-## 2. HTTP File Mode (HQPlayer Recommended)
+## 2. HTTP 文件模式（HQPlayer 推荐）
 
 ```text
 +------------------------------+
-|      Browser (Web UI)        |
+|      浏览器（Web UI）        |
 +---------------+--------------+
                 |
                 | HTTP
@@ -76,46 +76,46 @@ Topology and Features
                 v
 
 +-----------------------------------+
-| Host A                            |
+| 主机 A                            |
 |                                   |
 |  +-----------------------------+  |
 |  |         Jellyfin            |  |
-|  |      (Library/HTTP API)     |  |
+|  |      （媒体库 / HTTP API）  |  |
 |  +-------------+---------------+  |
 +----------------|------------------+
                  |
-                 | HTTP File (file-like)
-                 | sequential access
-                 | no transcoding
+                 | HTTP 文件（类文件访问）
+                 | 顺序访问
+                 | 无转码
                  v
 
 +-----------------------------------+
-| Host B                            |
+| 主机 B                            |
 |                                   |
 |  +-----------------------------+  |
 |  |         HQPlayer            |  |
-|  |    (Playback Engine)        |  |
+|  |        （播放引擎）         |  |
 |  +-------------+---------------+  |
 +-----------------------------------+
 ```
 
-### Features
+### 特性
 
-- Jellyfin and HQPlayer can be deployed on different machines
-- file-like sequential access (sequential stream model)
-- no transcoding
-- HQPlayer actively pulls audio data
-- behaves like local file access
-- retains playback control
+- Jellyfin 与 HQPlayer 可部署在不同机器
+- 类文件顺序访问（file-like sequential access）
+- 无转码
+- HQPlayer 主动拉取音频数据
+- 行为类似本地文件访问
+- 保留播放控制能力
 - bit-perfect
 
 ---
 
-## 3. HTTP Stream Mode (Compatibility Mode)
+## 3. HTTP 流模式（兼容模式）
 
 ```text
 +------------------------------+
-|      Browser (Web UI)        |
+|      浏览器（Web UI）        |
 +---------------+--------------+
                 |
                 | HTTP
@@ -128,34 +128,44 @@ Topology and Features
                 v
 
 +-----------------------------------+
-| Host A                            |
+| 主机 A                            |
 |                                   |
 |  +-----------------------------+  |
 |  |         Jellyfin            |  |
-|  |      (Library/HTTP API)     |  |
+|  |      （媒体库 / HTTP API）  |  |
 |  +-------------+---------------+  |
 +----------------|------------------+
                  |
-                 | HTTP Stream
-                 | Range access
-                 | no transcoding
+                 | HTTP 流
+                 | Range 访问（随机读取）
+                 | 无转码
                  v
 
 +-----------------------------------+
-| Host B                            |
+| 主机 B                            |
 |                                   |
 |  +-----------------------------+  |
 |  |         HQPlayer            |  |
-|  |    (Playback Engine)        |  |
+|  |        （播放引擎）         |  |
 |  +-------------+---------------+  |
 +-----------------------------------+
 ```
 
-### Features
+### 特性
 
-- Jellyfin and HQPlayer can be deployed on different machines
-- HTTP streaming with Range access (random-access stream model)
-- Range request support
-- HTTP stream behavior
-- compatible with more playback scenarios
-- no transcoding (when properly configured)
+- Jellyfin 与 HQPlayer 可部署在不同机器
+- HTTP 流 + Range 访问（HTTP streaming with Range access）
+- 支持基于 Range 的随机位置读取
+- 流媒体行为
+- 兼容更多播放场景
+- 无转码（正确配置时）
+
+---
+
+## 总结
+
+```text
+文件模式        = 本地文件直接控制（最佳）
+HTTP 文件模式   = 远程但“类文件访问”（推荐）
+HTTP 流模式     = 流媒体兼容方案
+```
