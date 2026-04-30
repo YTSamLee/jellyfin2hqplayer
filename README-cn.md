@@ -129,8 +129,8 @@ VU 表
       <img src="screenshots/mobile/home.jpg" width="250">
     </td>
     <td>
-      <div align="center">Settings</div>
-      <img src="screenshots/mobile/setting.png" width="250">
+      <div align="center">Search</div>
+      <img src="screenshots/mobile/search.jpg" width="250">
     </td>
   </tr>
   <tr>
@@ -169,8 +169,8 @@ VU 表
       <img src="screenshots/mobile/suggestions.jpg" width="250">
     </td>
     <td>
-      <div align="center">Search</div>
-      <img src="screenshots/mobile/search.jpg" width="250">
+      <div align="center">Settings</div>
+      <img src="screenshots/mobile/setting.png" width="250">
     </td>
   </tr>
 </table>
