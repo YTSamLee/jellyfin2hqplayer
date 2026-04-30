@@ -117,30 +117,53 @@ VU 表
 <table>
   <tr>
     <td>
-      <div align="center">播放视图</div>
+      <div align="center">Playing View</div>
       <img src="screenshots/mobile/playing.png" width="250">
     </td>
     <td>
-      <div align="center">设置</div>
+      <div align="center">Settings</div>
       <img src="screenshots/mobile/setting.png" width="250">
     </td>
   </tr>
   <tr>
     <td>
-      <div align="center">频谱分析仪</div>
+      <div align="center">Spectrum Analyzer</div>
       <img src="screenshots/mobile/spectrum.png" width="250">
     </td>
     <td>
-      <div align="center">声谱图</div>
+      <div align="center">Spectrogram</div>
       <img src="screenshots/mobile/spectrogram.png" width="250">
     </td>
   </tr>
   <tr>
     <td>
-      <div align="center">VU 表</div>
+      <div align="center">VU Meter</div>
       <img src="screenshots/mobile/vumeter.png" width="250">
     </td>
-    <td>&nbsp;</td>
+    <td>
+      <div align="center">Home</div>
+      <img src="screenshots/mobile/home.jpg" width="250">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center">ArtistDetails</div>
+      <img src="screenshots/mobile/artistdetails.jpg" width="250">
+    </td>
+    <td>
+      <div align="center">AlbumDetails</div>
+      <img src="screenshots/mobile/albumdetails.jpg" width="250">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center">Suggestions</div>
+      <img src="screenshots/mobile/suggestions.jpg" width="250">
+    </td>
+    <td>
+      <div align="center">Search</div>
+      <img src="screenshots/mobile/search.jpg" width="250">
+    </td>
   </tr>
 </table>
 

@@ -138,7 +138,30 @@ VU Meter
       <div align="center">VU Meter</div>
       <img src="screenshots/mobile/vumeter.png" width="250">
     </td>
-    <td>&nbsp;</td>
+    <td>
+      <div align="center">Home</div>
+      <img src="screenshots/mobile/home.jpg" width="250">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center">ArtistDetails</div>
+      <img src="screenshots/mobile/artistdetails.jpg" width="250">
+    </td>
+    <td>
+      <div align="center">AlbumDetails</div>
+      <img src="screenshots/mobile/albumdetails.jpg" width="250">
+    </td>
+  </tr>
+  <tr>
+    <td>
+      <div align="center">Suggestions</div>
+      <img src="screenshots/mobile/suggestions.jpg" width="250">
+    </td>
+    <td>
+      <div align="center">Search</div>
+      <img src="screenshots/mobile/search.jpg" width="250">
+    </td>
   </tr>
 </table>
 
