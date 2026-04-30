@@ -125,6 +125,34 @@ Or set system environment variable using command line
     setx PORT "8080" /M
 
 ==================================================
+3.5 Important Notice
+--------------------------------------------------
+
+Whether you **directly run**, **configure auto-start**, or **configure startup background mode**, you may encounter a **firewall prompt**.
+
+On first launch, please ensure to click:
+
+✔ Allow access (Private networks)
+
+Otherwise, the Web interface may not be accessible.
+
+--------------------------------------------------
+Suggestion: Run manually once
+--------------------------------------------------
+
+After configuring auto-start, **it is recommended to manually run once** to ensure the configuration is effective and Jellyfin2HQPlayer starts properly.
+
+Run the following command to manually start Jellyfin2HQPlayer:
+
+    jellyfin2hqplayer-win-x64.exe
+
+Or:
+
+    start-jellyfin2hqplayer.ps1
+
+Once manually run, the **system will ensure it starts automatically after the next logon**.
+
+==================================================
 4. Access the Web Interface
 ==================================================
 
