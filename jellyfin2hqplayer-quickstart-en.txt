@@ -41,6 +41,14 @@ Note:
 
     PORT=8080 ./deploy-jellyfin2hqplayer-macos-arm64.sh
 
+--------------------------------------------------
+Startup Behavior
+--------------------------------------------------
+
+macOS uses LaunchAgent:
+
+- Starts automatically after user login (Login startup)
+
 ==================================================
 3. Windows x64
 ==================================================
