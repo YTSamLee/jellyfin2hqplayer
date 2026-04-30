@@ -125,8 +125,8 @@ VU 表
 <table>
   <tr>
     <td>
-      <div align="center">Playing View</div>
-      <img src="screenshots/mobile/playing.png" width="250">
+      <div align="center">Home</div>
+      <img src="screenshots/mobile/home.jpg" width="250">
     </td>
     <td>
       <div align="center">Settings</div>
@@ -149,8 +149,8 @@ VU 表
       <img src="screenshots/mobile/vumeter.png" width="250">
     </td>
     <td>
-      <div align="center">Home</div>
-      <img src="screenshots/mobile/home.jpg" width="250">
+      <div align="center">Playing View</div>
+      <img src="screenshots/mobile/playing.png" width="250">
     </td>
   </tr>
   <tr>
