@@ -222,6 +222,18 @@ Email: 563422071@qq.com
 
 ---
 
+## License
+
+Jellyfin2HQPlayer is proprietary closed-source software, distributed in binary form only.
+
+Personal and non-commercial use is permitted. 
+Commercial use requires explicit written permission.
+
+See the [LICENSE](./LICENSE) file for full terms.
+
+---
+
 ### 中文版本
 
 [README 中文版](README-cn.md)
+

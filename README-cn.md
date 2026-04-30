@@ -224,6 +224,17 @@ Email: 563422071@qq.com
 
 ---
 
+## 许可协议
+
+Jellyfin2HQPlayer 是闭源专有软件，仅以二进制形式发布，不提供源代码。
+
+允许个人及非商业用途使用。  
+商业使用需要获得明确的书面许可。
+
+完整条款请查看 [LICENSE](./LICENSE) 文件。
+
+---
+
 ### English Version
 
 [README English](README.md)
