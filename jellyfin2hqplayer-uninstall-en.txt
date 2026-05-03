@@ -1,0 +1,108 @@
+# Jellyfin2HQPlayer Uninstall Guide
+
+==================================================
+1. Linux x64
+==================================================
+
+### Run uninstall script
+
+chmod +x uninstall-jellyfin2hqplayer-linux-x64.sh  
+sudo ./uninstall-jellyfin2hqplayer-linux-x64.sh  
+
+### What it does
+
+- Stops jellyfin2hqplayer service  
+- Disables auto-start  
+- Removes systemd service files  
+- Reloads systemd  
+- Removes application directory (/opt/jellyfin2hqplayer)  
+
+### Verify
+
+systemctl status jellyfin2hqplayer  
+
+Expected:
+
+Unit jellyfin2hqplayer.service could not be found  
+
+
+==================================================
+2. macOS arm64
+==================================================
+
+### Run uninstall script
+
+chmod +x uninstall-jellyfin2hqplayer-macos-arm64.sh  
+./uninstall-jellyfin2hqplayer-macos-arm64.sh  
+
+Note: Do NOT use sudo  
+
+### What it does
+
+- Stops LaunchAgent  
+- Removes LaunchAgent  
+- Deletes plist file  
+- Removes application directory (~/jellyfin2hqplayer)  
+- Removes log files  
+
+### Verify
+
+launchctl print gui/$(id -u)/com.jellyfin2hqplayer  
+
+Expected:
+
+Could not find service "com.jellyfin2hqplayer"  
+
+
+==================================================
+3. Windows x64
+==================================================
+
+### Case 1: Installed with Scheduled Task (AtLogOn / AtStartup)
+
+Open PowerShell (Run as Administrator):
+
+cd C:\jellyfin2hqplayer  
+
+Run:
+
+.\Uninstall-Jellyfin2HQPlayerTask.ps1  
+
+### What it does
+
+- Stops scheduled task  
+- Removes scheduled task  
+- Stops running process (jellyfin2hqplayer-win-x64.exe)  
+
+### Verify
+
+Get-ScheduledTask -TaskName "Jellyfin2HQPlayer"  
+
+Expected:
+
+Task not found  
+
+Check process:
+
+Get-Process jellyfin2hqplayer-win-x64  
+
+Expected:
+
+No running process  
+
+
+--------------------------------------------------
+
+### Case 2: Manual run (no Scheduled Task)
+
+1. Stop the application:
+
+Stop-Process -Name jellyfin2hqplayer-win-x64 -Force  
+
+(or close the window manually)
+
+2. Delete application folder:
+
+C:\jellyfin2hqplayer  
+
+

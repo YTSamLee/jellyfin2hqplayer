@@ -224,6 +224,14 @@ Jellyfin 提供完整的音乐管理，HQPlayer 处理音频播放，Jellyfin2HQ
 
 ---
 
+### 5.4 卸载 Jellyfin2HQPlayer
+
+链接：
+
+- [English](jellyfin2hqplayer-uninstall-en.txt) | [中文](jellyfin2hqplayer-uninstall-cn.txt)
+
+---
+
 ## 6. 联系信息
 
 YTSam

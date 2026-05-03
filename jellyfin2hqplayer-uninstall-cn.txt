@@ -1,0 +1,108 @@
+# Jellyfin2HQPlayer 卸载指南
+
+==================================================
+1. Linux x64
+==================================================
+
+### 执行卸载脚本
+
+chmod +x uninstall-jellyfin2hqplayer-linux-x64.sh  
+sudo ./uninstall-jellyfin2hqplayer-linux-x64.sh  
+
+### 脚本功能
+
+- 停止 jellyfin2hqplayer 服务  
+- 禁用开机启动  
+- 删除 systemd 服务文件  
+- 重新加载 systemd  
+- 删除安装目录（/opt/jellyfin2hqplayer）  
+
+### 验证
+
+systemctl status jellyfin2hqplayer  
+
+预期结果：
+
+Unit jellyfin2hqplayer.service could not be found  
+
+
+==================================================
+2. macOS arm64
+==================================================
+
+### 执行卸载脚本
+
+chmod +x uninstall-jellyfin2hqplayer-macos-arm64.sh  
+./uninstall-jellyfin2hqplayer-macos-arm64.sh  
+
+注意：不要使用 sudo  
+
+### 脚本功能
+
+- 停止 LaunchAgent  
+- 移除 LaunchAgent  
+- 删除 plist 文件  
+- 删除安装目录（~/jellyfin2hqplayer）  
+- 删除日志文件  
+
+### 验证
+
+launchctl print gui/$(id -u)/com.jellyfin2hqplayer  
+
+预期结果：
+
+Could not find service "com.jellyfin2hqplayer"  
+
+
+==================================================
+3. Windows x64
+==================================================
+
+### 情况 1：使用计划任务安装（AtLogOn / AtStartup）
+
+以管理员身份打开 PowerShell：
+
+cd C:\jellyfin2hqplayer  
+
+执行：
+
+.\Uninstall-Jellyfin2HQPlayerTask.ps1  
+
+### 脚本功能
+
+- 停止计划任务  
+- 删除计划任务  
+- 结束运行中的进程（jellyfin2hqplayer-win-x64.exe）  
+
+### 验证
+
+Get-ScheduledTask -TaskName "Jellyfin2HQPlayer"  
+
+预期结果：
+
+Task not found  
+
+检查进程：
+
+Get-Process jellyfin2hqplayer-win-x64  
+
+预期结果：
+
+无运行中的进程  
+
+
+--------------------------------------------------
+
+### 情况 2：未使用计划任务（手动运行）
+
+1. 停止程序：
+
+Stop-Process -Name jellyfin2hqplayer-win-x64 -Force  
+
+（或手动关闭窗口）
+
+2. 删除程序目录：
+
+C:\jellyfin2hqplayer  
+
+

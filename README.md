@@ -222,6 +222,16 @@ Links:
 
 ---
 
+
+### 5.4 Uninstall Jellyfin2HQPlayer
+
+Links:
+
+- [English](jellyfin2hqplayer-uninstall-en.txt) | [中文](jellyfin2hqplayer-uninstall-cn.txt)
+
+---
+
+
 ## 6. Contact Information
 
 YTSam
