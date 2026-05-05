@@ -2,7 +2,7 @@
 # Jellyfin2HQPlayer
 ![Jellyfin2HQPlayer Icon](icons/64x64.png)
 
-**版本 1.3.0**
+**版本 1.3.1**
 
 Jellyfin2HQPlayer 是一个 Web 控制界面，用于实现 Jellyfin 和 HQPlayer 的无缝集成。
 
