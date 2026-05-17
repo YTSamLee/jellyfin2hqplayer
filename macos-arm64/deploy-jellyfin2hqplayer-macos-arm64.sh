@@ -10,7 +10,11 @@ PLIST_DIR="${HOME}/Library/LaunchAgents"
 PLIST_FILE="${PLIST_DIR}/${PLIST_LABEL}.plist"
 
 PORT="${PORT:-3000}"
-APP_TAR="${1:-$(ls -t jellyfin2hqplayer-macos-arm64-*.tar.gz 2>/dev/null | head -n1)}"
+APP_TAR="${1:-}"
+
+if [[ -z "${APP_TAR}" ]]; then
+  APP_TAR="$(ls -t jellyfin2hqplayer-macos-arm64-*.tar.gz 2>/dev/null | head -n1 || true)"
+fi
 
 if [[ -z "${APP_TAR}" || ! -f "${APP_TAR}" ]]; then
   echo "[ERROR] No package found: jellyfin2hqplayer-macos-arm64-*.tar.gz"

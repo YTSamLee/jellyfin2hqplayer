@@ -8,7 +8,11 @@ SERVICE_NAME="jellyfin2hqplayer"
 SERVICE_FILE="/etc/systemd/system/${SERVICE_NAME}.service"
 PORT="${PORT:-3000}"
 
-APP_TAR="${1:-$(ls -t jellyfin2hqplayer-linux-x64-*.tar.gz 2>/dev/null | head -n1)}"
+APP_TAR="${1:-}"
+
+if [[ -z "${APP_TAR}" ]]; then
+  APP_TAR="$(ls -t jellyfin2hqplayer-linux-x64-*.tar.gz 2>/dev/null | head -n1 || true)"
+fi
 
 if [[ -z "${APP_TAR}" || ! -f "${APP_TAR}" ]]; then
   echo "[ERROR] No package found: jellyfin2hqplayer-linux-x64-*.tar.gz"
